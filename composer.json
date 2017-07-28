@@ -1,0 +1,32 @@
+{
+    "name": "morrislaptop/phpdotenv-safe",
+    "description": "Load environment variables from .env and ensure they're all present",
+    "keywords": [
+        "env",
+        "dotenv",
+        "environment"
+    ],
+    "license": "BSD-3-Clause-Attribution",
+    "authors": [
+        {
+            "name": "Craig Morris",
+            "email": "cr@igmorr.is"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "DotenvSafe\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
