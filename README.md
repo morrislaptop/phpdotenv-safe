@@ -45,7 +45,3 @@ Not all the variables have to be defined in `.env`, they can be supplied externa
 ```
 KEY=xyz php index.php
 ```
-
-# Usage
-
-R
