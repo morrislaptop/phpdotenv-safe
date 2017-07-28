@@ -37,7 +37,7 @@ $dotenv->load();
 Since the provided `.env` file does not contain all the variables defined in `.env.example`, an exception is thrown:
 
 ```
-PHP Fatal error:  Uncaught Dotenv\Exception\ValidationException: One or more environment variables failed assertions: WORLD is missing.
+PHP Fatal error:  Uncaught Dotenv\Exception\ValidationException: One or more environment variables failed assertions: KEY is missing.
 ```
 
 Not all the variables have to be defined in `.env`, they can be supplied externally. For example, the following would work:
