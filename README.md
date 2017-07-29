@@ -45,3 +45,17 @@ Not all the variables have to be defined in `.env`, they can be supplied externa
 ```
 KEY=xyz php index.php
 ```
+
+# Usage
+
+If the framework you use doesn't let you swap out `Dotenv` for `DotenvSafe`, you can always use the `check()` method later
+to  ensure you have the variables you need. 
+
+For example, in your `Laravel AppServiceProvider::register` method:
+
+```php
+  if (!$this->app->configurationIsCached()) {
+      $dotenv = new DotenvSafe($this->app->environmentPath(), $this->app->environmentFile());
+      $dotenv->check();
+  }
+```
