@@ -46,16 +46,31 @@ Not all the variables have to be defined in `.env`, they can be supplied externa
 KEY=xyz php index.php
 ```
 
-# Usage
+# Usage with popular frameworks
 
-If the framework you use doesn't let you swap out `Dotenv` for `DotenvSafe`, you can always use the `check()` method later
-to  ensure you have the variables you need. 
+## Laravel
 
-For example, in your `Laravel AppServiceProvider::register` method:
+Laravel doesn't make it easy to swap out its existing `Dotenv` instance from `vlucas/phpdotenv`, but you can validate the environment manually with `DotenvSafe` when the application boots.
+
+Just add the following to your `AppServiceProvider->register` method (which you'll find in `app/providers/AppServiceProvider.php`):
 
 ```php
   if (!$this->app->configurationIsCached()) {
-      $dotenv = new DotenvSafe($this->app->environmentPath(), $this->app->environmentFile());
+      $dotenv = new DotenvSafe\DotenvSafe($this->app->environmentPath(), $this->app->environmentFile());
       $dotenv->check();
   }
+```
+
+## Lumen
+
+`bootstrap/app.php` runs when your application starts, and loads the environment using `Dotenv\Dotenv`. You can easily swap this out to use `DotenvSafe\DotenvSafe`. All you need to do is replace:
+
+```php
+(new Dotenv\Dotenv(__DIR__.'/../'))->load();
+```
+
+with:
+
+```php
+(new DotenvSafe\DotenvSafe(__DIR__.'/../'))->load();
 ```
