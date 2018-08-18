@@ -1,4 +1,4 @@
-# morrislatop/phpdotenv-safe
+# morrislaptop/phpdotenv-safe
 
 Drop in replacement for [`vlucas/phpdotenv`](https://github.com/vlucas/phpdotenv), but ensures that all necessary environment
 variables are defined after reading from .env. These needed variables are read from `.env.example`, which should be
